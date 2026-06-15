@@ -1,4 +1,16 @@
 import { RelatedLens } from "./auditTypes";
+import {
+  truthConsensusPattern,
+  scientificOverreachPattern,
+  socialGeneralizationPattern,
+  classificationRiskPattern,
+  responsibilityDiffusionPattern,
+  nonDominationRiskPattern,
+  integrityRiskPattern,
+  dataGivennessPattern,
+  essentialiationPattern,
+  overgeneralizationPattern,
+} from "./multilingualPatterns";
 
 type FlagLensMap = {
   pattern: RegExp;
@@ -7,7 +19,7 @@ type FlagLensMap = {
 
 const flagLensMap: FlagLensMap[] = [
   {
-    pattern: /truth.?consensus|consensus.?truth|popular|everyone knows|widely accepted/i,
+    pattern: truthConsensusPattern,
     lenses: [
       { philosopherId: "tarski", name: "Alfred Tarski", reason: "Provides truth-condition framework to separate truth from agreement." },
       { philosopherId: "engel", name: "Pascal Engel", reason: "Distinguishes truth norm from consensus, utility, and popularity." },
@@ -15,7 +27,7 @@ const flagLensMap: FlagLensMap[] = [
     ]
   },
   {
-    pattern: /quantum|neuroscience|science proves|physics says|data shows|AI says|algorithm/i,
+    pattern: scientificOverreachPattern,
     lenses: [
       { philosopherId: "sellars", name: "Wilfrid Sellars", reason: "Audits when scientific vocabulary is treated as self-justifying." },
       { philosopherId: "carnap", name: "Rudolf Carnap", reason: "Checks logical syntax and verifiability of scientific claims." },
@@ -24,7 +36,7 @@ const flagLensMap: FlagLensMap[] = [
     ]
   },
   {
-    pattern: /young people|everyone|people today|society|all people|most people|the public/i,
+    pattern: socialGeneralizationPattern,
     lenses: [
       { philosopherId: "fricker", name: "Miranda Fricker", reason: "Checks whether group generalization erases dissenting voices." },
       { philosopherId: "anderson", name: "Elizabeth Anderson", reason: "Audits social generalization for hierarchy assumptions." },
@@ -32,7 +44,7 @@ const flagLensMap: FlagLensMap[] = [
     ]
   },
   {
-    pattern: /dangerous|high risk|low trust|unqualified|classified|score|label|category/i,
+    pattern: classificationRiskPattern,
     lenses: [
       { philosopherId: "hacking", name: "Ian Hacking", reason: "Detects looping effects where labels reshape the people they classify." },
       { philosopherId: "fricker", name: "Miranda Fricker", reason: "Audits credibility deficits imposed through classification." },
@@ -40,7 +52,7 @@ const flagLensMap: FlagLensMap[] = [
     ]
   },
   {
-    pattern: /system decided|automatically|algorithm decided|AI decided|no explanation|no appeal/i,
+    pattern: responsibilityDiffusionPattern,
     lenses: [
       { philosopherId: "lackey", name: "Jennifer Lackey", reason: "Audits responsibility diffusion in collective or automated decisions." },
       { philosopherId: "strawson", name: "P. F. Strawson", reason: "Checks whether persons remain responsibility subjects, not just processing objects." },
@@ -48,7 +60,7 @@ const flagLensMap: FlagLensMap[] = [
     ]
   },
   {
-    pattern: /banned|suspended|cannot appeal|no recourse|arbitrary|opaque decision/i,
+    pattern: nonDominationRiskPattern,
     lenses: [
       { philosopherId: "pettit", name: "Philip Pettit", reason: "Detects arbitrary power and missing appeal paths." },
       { philosopherId: "raz", name: "Joseph Raz", reason: "Audits whether authority is justified by serving autonomous reasoning." },
@@ -56,7 +68,7 @@ const flagLensMap: FlagLensMap[] = [
     ]
   },
   {
-    pattern: /greater good|optimization|maximize|utilitarian|sacrifice|efficiency/i,
+    pattern: integrityRiskPattern,
     lenses: [
       { philosopherId: "williams", name: "Bernard Williams", reason: "Detects when system optimization destroys individual integrity." },
       { philosopherId: "scanlon", name: "T. M. Scanlon", reason: "Checks whether the claim is justifiable to all affected parties." },
@@ -64,7 +76,7 @@ const flagLensMap: FlagLensMap[] = [
     ]
   },
   {
-    pattern: /log|data|behavior|pattern|metrics|track|record|profile/i,
+    pattern: dataGivennessPattern,
     lenses: [
       { philosopherId: "anscombe", name: "Elizabeth Anscombe", reason: "Audits log-to-action reduction and the gap between behavior and intention." },
       { philosopherId: "davidson", name: "Donald Davidson", reason: "Reconstructs action descriptions with intention and context." },
@@ -72,7 +84,7 @@ const flagLensMap: FlagLensMap[] = [
     ]
   },
   {
-    pattern: /past data|history shows|previous record|always been|fixed|permanent|cannot change/i,
+    pattern: overgeneralizationPattern,
     lenses: [
       { philosopherId: "mcdowell", name: "John McDowell", reason: "Detects when past data closes formation possibility and reason-responsiveness." },
       { philosopherId: "parfit", name: "Derek Parfit", reason: "Audits personal identity assumptions in future-fixing claims." },
@@ -80,7 +92,7 @@ const flagLensMap: FlagLensMap[] = [
     ]
   },
   {
-    pattern: /meaning of|defined as|by definition|essentially|by nature|must be/i,
+    pattern: essentialiationPattern,
     lenses: [
       { philosopherId: "putnam", name: "Hilary Putnam", reason: "Detects meaning externalism issues and context-shift." },
       { philosopherId: "dummett", name: "Michael Dummett", reason: "Audits whether definitions are verifiable and manifest." },
@@ -88,7 +100,7 @@ const flagLensMap: FlagLensMap[] = [
     ]
   },
   {
-    pattern: /hidden|assumes|takes for granted|implicit|presupposes/i,
+    pattern: /hidden|assumes|takes for granted|implicit|presupposes|暗黙|前提|隠れた|潜在的|隐含|隐性假设|caché|versteckt|oculto|скрытый|gizli|tersembunyi/i,
     lenses: [
       { philosopherId: "russell", name: "Bertrand Russell", reason: "Detects hidden existence assumptions and ontological commitments." },
       { philosopherId: "quine", name: "W. V. O. Quine", reason: "Maps the background belief web supporting the claim." },

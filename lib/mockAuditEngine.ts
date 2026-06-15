@@ -1,25 +1,38 @@
 import { AuditRequest, AuditResult, AuditCard } from "./auditTypes";
 import { detectRelatedLenses } from "./relatedLenses";
 import { generateMarkdown } from "./markdown";
+import {
+  overgeneralizationPattern,
+  scientificOverreachPattern,
+  socialGeneralizationPattern,
+  truthConsensusPattern,
+  dataGivennessPattern,
+  classificationRiskPattern,
+  responsibilityDiffusionPattern,
+  nonDominationRiskPattern,
+  integrityRiskPattern,
+  essentialiationPattern,
+  dataReductionPattern,
+  hypotheticalStatusPattern,
+} from "./multilingualPatterns";
 
 const EXAMPLE_INPUT = "Quantum information theory has produced the hypothesis that everything is quantum information, and this view is accepted among young people.";
 
 function detectFlags(text: string): string[] {
   const flags: string[] = [];
-  const t = text.toLowerCase();
 
-  if (/\ball\b|\beverything\b|\balways\b|\bnever\b|\beveryone\b/.test(t)) flags.push("Overgeneralization / Scope Problem");
-  if (/science proves|quantum|neuroscience|physics says|brain science/.test(t)) flags.push("Scientific Overreach Risk");
-  if (/young people|everyone|people today|society|the public/.test(t)) flags.push("Social Generalization Risk");
-  if (/\baccepted\b|\bpopular\b|\btrending\b|everyone knows/.test(t)) flags.push("Truth/Consensus Confusion");
-  if (/\bdata\b|\blog\b|\bscore\b|AI says|algorithm/.test(t)) flags.push("Data Givenness Risk");
-  if (/dangerous person|high risk|low trust|unqualified/.test(t)) flags.push("Classification Risk");
-  if (/the system decided|automatically|algorithm decided/.test(t)) flags.push("Responsibility Diffusion");
-  if (/cannot appeal|banned|suspended|no explanation/.test(t)) flags.push("Non-Domination Risk");
-  if (/for the greater good|optimization|maximize/.test(t)) flags.push("Integrity Risk");
-  if (/must be|essentially|by nature/.test(t)) flags.push("Essentialization Risk");
-  if (/just data|only numbers|mere statistics/.test(t)) flags.push("Data Reduction Risk");
-  if (/hypothesis|theory|suggests|may/.test(t)) flags.push("Hypothetical Status Unclear");
+  if (overgeneralizationPattern.test(text)) flags.push("Overgeneralization / Scope Problem");
+  if (scientificOverreachPattern.test(text)) flags.push("Scientific Overreach Risk");
+  if (socialGeneralizationPattern.test(text)) flags.push("Social Generalization Risk");
+  if (truthConsensusPattern.test(text)) flags.push("Truth/Consensus Confusion");
+  if (dataGivennessPattern.test(text)) flags.push("Data Givenness Risk");
+  if (classificationRiskPattern.test(text)) flags.push("Classification Risk");
+  if (responsibilityDiffusionPattern.test(text)) flags.push("Responsibility Diffusion");
+  if (nonDominationRiskPattern.test(text)) flags.push("Non-Domination Risk");
+  if (integrityRiskPattern.test(text)) flags.push("Integrity Risk");
+  if (essentialiationPattern.test(text)) flags.push("Essentialization Risk");
+  if (dataReductionPattern.test(text)) flags.push("Data Reduction Risk");
+  if (hypotheticalStatusPattern.test(text)) flags.push("Hypothetical Status Unclear");
   if (flags.length === 0) flags.push("Requires Scope Clarification");
 
   return flags;
