@@ -1,4 +1,4 @@
-import { HistoryEntry, AuditResult, AuditMode } from "./auditTypes";
+import { HistoryEntry, AuditResult, DDATAdvancedResult, AuditMode } from "./auditTypes";
 
 const STORAGE_KEY = "statement-audit-history";
 const SETTINGS_KEY = "statement-audit-settings";
@@ -26,7 +26,7 @@ export function loadHistory(): HistoryEntry[] {
   }
 }
 
-export function saveToHistory(input: string, mode: AuditMode, result: AuditResult): HistoryEntry {
+export function saveToHistory(input: string, mode: AuditMode, result: AuditResult | DDATAdvancedResult): HistoryEntry {
   const entry: HistoryEntry = {
     id: crypto.randomUUID(),
     timestamp: Date.now(),

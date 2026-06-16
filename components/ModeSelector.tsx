@@ -8,6 +8,7 @@ const MODES: { value: AuditMode; label: string; description: string }[] = [
   { value: "ddat", label: "DDAT Audit", description: "Philosophical and institutional direction audit" },
   { value: "rewrite", label: "Neutral Rewrite", description: "Rewrite into a clearer, more defensible form" },
   { value: "reply", label: "Calm Reply", description: "Generate a calm, non-combative response" },
+  { value: "ddat-advanced", label: "Advanced DDAT", description: "Layer overreach, belief/justification risk, dialectical direction" },
 ];
 
 interface ModeSelectorProps {
@@ -17,7 +18,7 @@ interface ModeSelectorProps {
 
 export function ModeSelector({ selected, onChange }: ModeSelectorProps) {
   return (
-    <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-5">
+    <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
       {MODES.map(mode => (
         <button
           key={mode.value}

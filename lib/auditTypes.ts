@@ -1,4 +1,4 @@
-export type AuditMode = "quick" | "deep" | "ddat" | "rewrite" | "reply";
+export type AuditMode = "quick" | "deep" | "ddat" | "rewrite" | "reply" | "ddat-advanced";
 
 export interface AuditCard {
   id: string;
@@ -33,7 +33,81 @@ export interface HistoryEntry {
   timestamp: number;
   input: string;
   mode: AuditMode;
-  result: AuditResult;
+  result: AuditResult | DDATAdvancedResult;
+}
+
+// ── DDAT Advanced types ──────────────────────────────────────────────────────
+
+export type RiskLevel = "Low" | "Medium" | "High" | "Critical";
+
+export type DialecticalDirectionResult =
+  | "Freedom-Generating"
+  | "Ambivalent"
+  | "Justification-Generating"
+  | "Self-Enclosed Dialectic"
+  | "Requires Revision";
+
+export interface UseContextProblem {
+  term: string;
+  problem: string;
+  suggestedClarification: string;
+}
+
+export interface DDATAdvancedScores {
+  layerOverreachRisk: number;
+  beliefGenerationRisk: number;
+  justificationGenerationRisk: number;
+  institutionalHarmRisk: number;
+  freedomGenerationPotential: number;
+  revisionNecessity: number;
+}
+
+export interface DDATAdvancedResult {
+  mode: "ddat-advanced";
+  propositionType: string;
+  generationConditions: {
+    primarySources: string[];
+    hiddenAssumptions: string[];
+    missingConditions: string[];
+  };
+  layerClassification: string[];
+  layerOverreach: {
+    riskLevel: RiskLevel;
+    patterns: string[];
+    explanation: string;
+  };
+  useContextProblems: UseContextProblem[];
+  beliefGenerationRisk: {
+    riskLevel: RiskLevel;
+    patterns: string[];
+    explanation: string;
+  };
+  justificationGenerationRisk: {
+    riskLevel: RiskLevel;
+    patterns: string[];
+    explanation: string;
+  };
+  dialecticalDirection: {
+    result: DialecticalDirectionResult;
+    explanation: string;
+  };
+  institutionalEffect: {
+    classifiedSubjects: string[];
+    authorizedAgents: string[];
+    agencyLoss: string[];
+    invisibleConditions: string[];
+    protectedInstitutions: string[];
+  };
+  ecologicalGenerativeContext: {
+    erasedContexts: string[];
+    embodiedConditions: string[];
+    technologicalConditions: string[];
+    institutionalConditions: string[];
+  };
+  scores: DDATAdvancedScores;
+  revisedProposition: string;
+  shortFinalDiagnosis: string;
+  markdownExport: string;
 }
 
 export type DDATStatus =

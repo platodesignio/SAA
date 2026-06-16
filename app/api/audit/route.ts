@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { AuditRequest } from "@/lib/auditTypes";
 import { runMockAudit } from "@/lib/mockAuditEngine";
+import { runDDATAdvancedAudit } from "@/lib/ddatAdvancedEngine";
 
 export async function POST(req: NextRequest) {
   try {
@@ -11,8 +12,13 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Text is required." }, { status: 400 });
     }
 
-    if (!["quick", "deep", "ddat", "rewrite", "reply"].includes(mode)) {
+    if (!["quick", "deep", "ddat", "rewrite", "reply", "ddat-advanced"].includes(mode)) {
       return NextResponse.json({ error: "Invalid mode." }, { status: 400 });
+    }
+
+    if (mode === "ddat-advanced") {
+      const result = runDDATAdvancedAudit(text.trim());
+      return NextResponse.json(result);
     }
 
     const result = runMockAudit({ text: text.trim(), mode });

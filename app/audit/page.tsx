@@ -2,15 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { AuditResult } from "@/lib/auditTypes";
+import { AuditResult, DDATAdvancedResult, AuditMode } from "@/lib/auditTypes";
 import { AuditResultView } from "@/components/AuditResult";
+import { DDATAdvancedResultView } from "@/components/DDATAdvancedResultView";
 import { AuditInput, EXAMPLE } from "@/components/AuditInput";
 import { ModeSelector } from "@/components/ModeSelector";
-import { AuditMode } from "@/lib/auditTypes";
 
 export default function AuditPage() {
   const router = useRouter();
-  const [result, setResult] = useState<AuditResult | null>(null);
+  const [result, setResult] = useState<AuditResult | DDATAdvancedResult | null>(null);
   const [input, setInput] = useState("");
   const [text, setText] = useState("");
   const [mode, setMode] = useState<AuditMode>("quick");
@@ -68,7 +68,10 @@ export default function AuditPage() {
             Home
           </button>
         </div>
-        <AuditResultView result={result} input={input} />
+        {result.mode === "ddat-advanced"
+          ? <DDATAdvancedResultView result={result as DDATAdvancedResult} input={input} />
+          : <AuditResultView result={result as AuditResult} input={input} />
+        }
       </div>
     );
   }
