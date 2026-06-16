@@ -53,7 +53,7 @@ export function HistoryList({ entries, onDelete, onClearAll, onSelect }: History
               </span>
             </div>
             <p className="text-sm text-gray-700 mt-2 line-clamp-2">{entry.input}</p>
-            {entry.result.auditFlags.length > 0 && (
+            {"auditFlags" in entry.result && entry.result.auditFlags.length > 0 && (
               <div className="flex flex-wrap gap-1 mt-2">
                 {entry.result.auditFlags.slice(0, 3).map(f => (
                   <span key={f} className="text-xs text-gray-400 bg-gray-50 border border-gray-100 rounded px-1.5 py-0.5">{f}</span>
