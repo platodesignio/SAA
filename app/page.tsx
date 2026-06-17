@@ -38,7 +38,7 @@ export default function HomePage() {
       {/* Hero */}
       <div className="space-y-2">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900">Statement Audit</h1>
-        <p className="text-lg text-gray-500">Do not win arguments. Clarify them.</p>
+        <p className="text-lg text-gray-500">Audit claims by logic, layer, belief-risk, institutional effect, and dialectical direction.</p>
         <p className="text-xs text-gray-400 pt-1">This tool audits claims, not persons.</p>
       </div>
 
@@ -68,14 +68,17 @@ export default function HomePage() {
         <p className="text-xs text-gray-400 text-center">
           Do not paste private, confidential, medical, legal, or sensitive personal information.
         </p>
+        <p className="text-xs text-gray-300 text-center leading-relaxed">
+          Statement Audit audits claims, not persons.&ensp;No person rating.&ensp;No moral score.&ensp;No debate game.
+        </p>
       </div>
 
       {/* Principle cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-gray-100">
         {[
-          { title: "Clarification", body: "Statement Audit does not decide who is right. It clarifies what is being claimed and under what conditions it could be evaluated." },
-          { title: "No Scoring", body: "No person ratings. No moral scores. No correctness meters. Audit ethics must audit scoring systems without converting persons into ethical scores." },
-          { title: "Limitation", body: "Statement Audit is not a truth machine. It clarifies the conditions under which a claim could be evaluated. Final judgment remains with the reader." },
+          { title: "Audit, not debate", body: "Statement Audit does not decide who is right. It examines what a claim is generating — in logic, in belief, in institutional structure, and in dialectical direction." },
+          { title: "No person rating", body: "No person ratings. No moral scores. No debate scoreboard. Heuristic scores are audit indicators applied to propositions, not judgments of human worth." },
+          { title: "Limitation", body: "Statement Audit is not a truth machine. It clarifies the conditions under which a claim could be evaluated and what it produces. Final judgment remains with the reader." },
         ].map(card => (
           <div key={card.title} className="bg-gray-50 rounded-lg p-4 border border-gray-100">
             <h3 className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-1">{card.title}</h3>

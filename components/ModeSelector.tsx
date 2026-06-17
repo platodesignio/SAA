@@ -4,11 +4,11 @@ import { AuditMode } from "@/lib/auditTypes";
 
 const MODES: { value: AuditMode; label: string; description: string }[] = [
   { value: "quick", label: "Quick Audit", description: "For SNS posts, headlines, and short claims" },
-  { value: "deep", label: "Deep Audit", description: "For essays, long arguments, and AI outputs" },
-  { value: "ddat", label: "DDAT Audit", description: "Philosophical and institutional direction audit" },
-  { value: "rewrite", label: "Neutral Rewrite", description: "Rewrite into a clearer, more defensible form" },
-  { value: "reply", label: "Calm Reply", description: "Generate a calm, non-combative response" },
-  { value: "ddat-advanced", label: "Advanced DDAT", description: "Layer overreach, belief/justification risk, dialectical direction" },
+  { value: "deep", label: "Deep Audit", description: "For essays, long arguments, research claims, and AI outputs" },
+  { value: "ddat", label: "DDAT Audit", description: "Audits whether a statement tends toward freedom-generation or justification-generation" },
+  { value: "rewrite", label: "Neutral Rewrite", description: "Rewrites the statement into a clearer, more defensible, less overextended form" },
+  { value: "reply", label: "Calm Reply", description: "Generates a calm, non-combative response without escalating the dispute" },
+  { value: "ddat-advanced", label: "Advanced DDAT", description: "Audits layer overreach, belief-generation risk, justification-generation risk, institutional effect, ecological context, and dialectical direction" },
 ];
 
 interface ModeSelectorProps {

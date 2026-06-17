@@ -28,17 +28,38 @@ export default function FrameworkPage() {
         <p className="text-sm text-gray-500 mt-1">The philosophy behind Statement Audit.</p>
       </div>
 
+      {/* Core Principle */}
+      <section className="space-y-3">
+        <h2 className="text-base font-semibold text-gray-900">Core Principle</h2>
+        <p className="text-sm text-gray-600 leading-relaxed">
+          A proposition is not an isolated logical atom.
+          It is a late-stage symbolic output generated through language, body, environment, institution, culture, technology, and division of labor.
+        </p>
+        <p className="text-sm text-gray-600 leading-relaxed">
+          Statement Audit therefore asks not only whether a claim is true or false, but also:
+        </p>
+        <ul className="text-sm text-gray-600 space-y-1 ml-1">
+          <li className="flex gap-2"><span className="text-gray-300 shrink-0">—</span>what generated it</li>
+          <li className="flex gap-2"><span className="text-gray-300 shrink-0">—</span>which layer it belongs to</li>
+          <li className="flex gap-2"><span className="text-gray-300 shrink-0">—</span>whether it overreaches across layers</li>
+          <li className="flex gap-2"><span className="text-gray-300 shrink-0">—</span>what belief it produces</li>
+          <li className="flex gap-2"><span className="text-gray-300 shrink-0">—</span>what institution it protects</li>
+          <li className="flex gap-2"><span className="text-gray-300 shrink-0">—</span>who it classifies</li>
+          <li className="flex gap-2"><span className="text-gray-300 shrink-0">—</span>whether it opens or closes future freedom</li>
+        </ul>
+      </section>
+
       {/* What is it */}
       <section className="space-y-3">
         <h2 className="text-base font-semibold text-gray-900">What is Statement Audit?</h2>
         <p className="text-sm text-gray-600 leading-relaxed">
-          Statement Audit is a lightweight philosophical audit tool for everyday SNS arguments, online claims, public statements, essays, AI outputs, and institutional language. It does not score people. It does not decide who is morally superior. It does not generate aggressive rebuttals. It clarifies claims.
+          Statement Audit is a philosophical audit tool for claims, propositions, arguments, SNS posts, headlines, AI outputs, and institutional language. It is not a debate tool, a fact-checking service, a moral scoring app, or a self-help tool. It audits the logical structure, layer composition, belief-generation risk, institutional effects, and dialectical direction of statements.
         </p>
         <p className="text-sm text-gray-600 leading-relaxed">
-          Statement Audit audits statements by decomposing them into propositions, undefined terms, truth conditions, evidence requirements, conceptual overreach, category errors, consensus/truth confusion, epistemic injustice risks, classification risks, responsibility diffusion, and DDAT direction risks.
+          It does not score persons. It does not determine who is morally superior. It does not generate rebuttals designed to win arguments. It clarifies what a claim is doing — structurally, institutionally, and dialectically.
         </p>
         <div className="bg-gray-50 rounded-lg p-4 border border-gray-100">
-          <p className="text-sm font-medium text-gray-900">Statement Audit is not a truth machine. It is a clarification tool.</p>
+          <p className="text-sm font-medium text-gray-900">Statement Audit is not a truth machine. It is a clarification and audit tool.</p>
         </div>
       </section>
 
@@ -75,18 +96,18 @@ export default function FrameworkPage() {
 
       {/* Why no scores */}
       <section className="space-y-3">
-        <h2 className="text-base font-semibold text-gray-900">Why No Scores?</h2>
+        <h2 className="text-base font-semibold text-gray-900">No Person Rating. No Moral Score. No Debate Game.</h2>
         <p className="text-sm text-gray-600 leading-relaxed">
-          Audit ethics must audit scoring systems without converting persons into ethical scores. Scoring people creates exactly the kind of classification fixation, epistemic injustice, and future closure that this tool exists to audit. A claim can be evaluated. A person cannot be reduced to a score.
+          An audit tool that scores persons would reproduce the very structure it is designed to examine: classification fixation, epistemic injustice, and future closure. A claim can be audited. A person cannot be reduced to a score. Heuristic scores in Statement Audit are applied to propositions — they are audit indicators, not judgments of human worth.
         </p>
         <div className="bg-gray-50 rounded-lg p-4 border border-gray-100 space-y-2">
           <p className="text-sm text-gray-700">Statement Audit never:</p>
           <ul className="text-xs text-gray-600 space-y-1 ml-2">
             <li>• Rates a person</li>
             <li>• Ranks a user</li>
-            <li>• Gives a moral score</li>
-            <li>• Uses numeric correctness scores</li>
-            <li>• Encourages dunking, humiliation, or quote-tweet attacks</li>
+            <li>• Assigns a moral score to a human being</li>
+            <li>• Uses numeric correctness scores on persons</li>
+            <li>• Encourages humiliation, dunking, or adversarial quote-tweet use</li>
             <li>• Converts disagreement into personal judgment</li>
           </ul>
         </div>

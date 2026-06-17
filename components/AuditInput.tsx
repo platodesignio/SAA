@@ -14,7 +14,7 @@ export function AuditInput({ value, onChange, onLoadExample }: AuditInputProps) 
       <textarea
         value={value}
         onChange={e => onChange(e.target.value)}
-        placeholder="Paste an SNS post, comment, headline, essay paragraph, AI output, or institutional statement…"
+        placeholder="Paste a statement, argument, headline, SNS post, or AI-generated claim. Select an audit mode and run the audit."
         className="w-full min-h-[140px] resize-y rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
         rows={6}
       />
